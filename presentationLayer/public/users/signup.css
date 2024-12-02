@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://nws.ams3.cdn.digitaloceanspaces.com/content/5A33D1474A94741A998AA72B8C722C9B/2245-1920.webp");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+   
+}
+.picture-container{
+    width: 40%;
+    height: 80vh;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    text-align: center;
+    opacity: 0.7;
+    margin: 100px 100px 100px 120px;
+    
+   
+    
+}
+.imgbox{
+    margin-top: 235px;
+}
+.imgbox h2{
+    font-size: 50px;
+    color: #152C5B;
+}
+.imgbox h2 span{
+    color: #3252DF;
+}
+.signup-container{
+    width: 60%;
+    height: 100vh;
+    background-color: whitesmoke;
+    margin-left: 200px;
+    padding:30px;
+    text-align: center;
+}
+.heading{
+    margin-bottom: 10px;
+    font-size: 35px;
+    font-weight: 600;
+}
+.row{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-left: 35px;
+}
+.row label{
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 18px;
+    
+}
+.row input{
+    width: 400px;
+    height: 25px;
+    padding: 15px;
+}
+.sbmt-btn{
+    width: 400px;
+    
+    margin-left: -25px;
+    margin-top: 25px;
+    color: white;
+    background-color: #003DFC;
+    padding: 10px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+}
+form{
+    margin-left: 20px;
+}
+p {
+  margin-left: -29px;
+  margin-top: 10px;
+}
+p a{
+    color: black;
+}
