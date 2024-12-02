@@ -15,13 +15,13 @@ body{
    
 }
 .picture-container{
-    width: 40%;
+    width: 600px;
     height: 80vh;
     border-radius: 12px;
     background-color: whitesmoke;
     text-align: center;
     opacity: 0.7;
-    margin: 100px 100px 100px 120px;
+    margin: 80px 100px 100px 200px;
     
    
     
@@ -37,7 +37,7 @@ body{
     color: #3252DF;
 }
 .signup-container{
-    width: 60%;
+    width: 900px;
     height: 100vh;
     background-color: whitesmoke;
     margin-left: 200px;
@@ -69,7 +69,7 @@ body{
 .sbmt-btn{
     width: 400px;
     
-    margin-left: -25px;
+    margin-left: 20px;
     margin-top: 25px;
     color: white;
     background-color: #003DFC;
@@ -77,12 +77,13 @@ body{
     border: 0;
     outline: 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 form{
     margin-left: 20px;
 }
 p {
-  margin-left: -29px;
+  margin-left: 15px;
   margin-top: 10px;
 }
 p a{
