@@ -1,11 +1,11 @@
 const express = require("express")
 const router = express.Router();
-const {registrationPageLoading} = require("../controllers/userAuthenticationController");
+const {registrationPageLoading,loginPageLoading} = require("../controllers/userAuthenticationController");
 
 
 
-console.log("hey")
-router.route("/").get(registrationPageLoading);
+router.route("/").get(loginPageLoading)
+router.route("/registration").get(registrationPageLoading)
 
 module.exports = router;
 
