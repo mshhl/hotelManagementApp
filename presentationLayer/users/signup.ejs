@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp-LankaStay</title>
     <link rel="stylesheet" href="users/signup.css">
+    
 </head>
 <body>
     <div class="picture-container"  >
@@ -14,34 +15,35 @@
     </div>
     <div class="signup-container">
       <div class="heading">Create Account</div>
-      <form action="" method="post">
-        <div class="row">
+      <form action="" method="post" >
+        <div class="row" >
             <label for="name">Name</label>
-            <input type="text" placeholder="Enter your name" spellcheck="false" required name="name">
+            <input type="text" placeholder="Enter your name" spellcheck="false" required name="name" class="nameInput" onblur = whenLeave() >
         </div>
         <div class="row">
             <label for="email">Email</label>
-            <input type="text" placeholder="Enter your email" spellcheck="false" required name="email">
+            <input type="text" placeholder="Enter your email" spellcheck="false" required name="email" class="emailInput">
         </div>
         <div class="row">
             <label for="mobile">Phone No</label>
-            <input type="text" placeholder="Enter your mobile number" spellcheck="false" required name="mobile">
+            <input type="text" placeholder="Enter your mobile number" spellcheck="false" required name="mobile" class="mobileInput">
         </div>
         <div class="row">
             <label for="country">Country</label>
-            <input type="text" placeholder="Enter your country name" spellcheck="false" required name="country">
+            <input type="text" placeholder="Enter your country name" spellcheck="false" required name="country" class="countryInput">
         </div>
         <div class="row">
             <label for="username">username</label>
-            <input type="text" placeholder="Enter your username" spellcheck="false" required name="username">
+            <input type="text" placeholder="Enter your username" spellcheck="false" required name="username" class="usernameInput">
         </div>
         <div class="row">
             <label for="password">password</label>
-            <input type="text" placeholder="Enter your password" spellcheck="false" required name="password">
+            <input type="text" placeholder="Enter your password" spellcheck="false" required name="password" class="passwordInput">
         </div>
         <button type="submit" class="sbmt-btn">Register</button>
         <p><a href="/">Login</a></p>
       </form>
     </div>
+    <script    src="js/signupValidation.js"></script>
 </body>
 </html>

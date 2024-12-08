@@ -9,8 +9,8 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"presentationLayer"));
 
 // configured public file ,parsing to javascript object and form submission through urlencoded
-app.use(express.static("presentationLayer/public"));
 app.use(express.json());
+app.use(express.static(path.join(__dirname,"presentationLayer/public")));
 app.use(express.urlencoded({extended:true}));
 
 app.use("/",router);
