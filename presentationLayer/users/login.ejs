@@ -18,18 +18,19 @@
         </div>
       <div class="heading">Login Account</div>
       <form action="" method="post">
-       
+       <div class="errorMessage"></div>
         <div class="row">
             <label for="email">Email</label>
-            <input type="text" placeholder="Enter your email" spellcheck="false" required name="email">
+            <input type="text" placeholder="Enter your email" spellcheck="false" required name="email" class="emailInput">
         </div>
         <div class="row">
             <label for="password">password</label>
-            <input type="text" placeholder="Enter your password" spellcheck="false" required name="password">
+            <input type="text" placeholder="Enter your password" spellcheck="false" required name="password" class="passwordInput">
         </div>
         <button type="submit" class="sbmt-btn">Register</button>
         <p><a href="/registration">Create Account</a></p>
       </form>
     </div>
+    <script src="js/loginValidation.js"></script>
 </body>
 </html>
