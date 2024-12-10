@@ -17,7 +17,7 @@ submitBtn.addEventListener("click",function(e){
 })
 
 
-otpInput.addEventListener('keydown', function(event) {
+otpInput.addEventListener('keyup', function(event) {
   // Allow numbers and backspace
   if (isNaN(event.key) && event.key !== 'Backspace') {
     otpInput.value = "";
