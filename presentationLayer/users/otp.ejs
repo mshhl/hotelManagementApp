@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otp Page</title>
+    <link rel="stylesheet" href="users/otp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
+</head>
+<body>
+   <div class="picture_container">
+      <div class="brandBox">
+        <h2>Lanka <span>stay</span></h2>
+      </div>
+   </div>
+   <div class="otp_container">
+    <div class="previousBox">
+        <i class="fa-solid fa-chevron-left" style="color: red;"></i>
+        <p class="backlogin">Back to Login</p>
+    </div>
+    <div class="headingBox">
+        <h2 class="heading">Verify Otp</h2>
+        <p>An authentication code has been sent to your phone number</p>
+    </div>
+    <div class="errorMessage"></div>
+    <form action="" method="post" class="form">
+        <input type="text" class="otpInput" name="otp">
+        <p>Didn't receive a code?<span class="resendbtn">resend</span></p>
+        <button class="submitBtn" type="submit">Verify</button>
+    </form>
+    
+    
+     <script src="js/otpValidation.js"></script>
+   </div>
+</body>
+</html>
