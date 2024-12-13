@@ -10,6 +10,39 @@ const registrationPageLoading = (req,res) =>{
 const loginPageLoading = (req,res) =>{
     res.render("users/login")
 }
+const login = async function(req,res){
+    try {
+       const {email,password} = req.body;
+       const result1 = emailValidation(email);
+       const result2 = passwordValidation(password);
+       if(typeof result1 !== "undefined"){
+        res.render("users/login",{serverMessage:result1});
+        return
+       }
+       if(typeof result2 !== "undefined"){
+        res.render("users/login",{serverMessage:result2});
+        return;
+       }
+       const customer = await users.findOne({email});
+       if(!customer){
+        res.render("users/login",{serverMessage:"user doesn't exist!"});
+        return
+       }
+       const result = await bcrypt.compare(password,customer.password);
+       if(!result){
+        res.render("users/login",{serverMessage:"Incorrect password"});
+        return;
+       }
+       const jwtSecret = process.env.JWT_SECRET_KEY;
+            const token = jwt.sign({email},jwtSecret,{expiresIn:"5m"})
+            res.cookie("jwt",token,{httpOnly:true,secure:true})
+            res.redirect("/");
+
+       
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 const registration = async function(req,res){
    try {
     const {Name,email,mobile,country,username,password} = req.body;
@@ -47,7 +80,7 @@ const registration = async function(req,res){
            const savedDocument = await user.save()
            console.log(savedDocument);
            const jwtSecret = process.env.JWT_SECRET_KEY;
-            const token = jwt.sign({fullname:Name,country},jwtSecret,{expiresIn:"5m"})
+            const token = jwt.sign({email},jwtSecret,{expiresIn:"5m"})
             res.cookie("jwt",token,{httpOnly:true,secure:true})
             res.redirect("/");
            
@@ -71,5 +104,6 @@ const registration = async function(req,res){
 module.exports = {
     registrationPageLoading,
     loginPageLoading,
-    registration
+    registration,
+    login
 }

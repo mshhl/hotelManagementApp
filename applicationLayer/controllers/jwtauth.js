@@ -14,6 +14,20 @@ function jwtAuth (req,res,next){
     }
     
 }
+const jwtAfterCheck = function(req,res,next){
+    try {
+        const token = req.cookies.jwt;
+        const decoded = jsonwebtoken.verify(token,process.env.JWT_SECRET_KEY);
+        if(decoded){
+            next();
+        }
+    } catch (error) {
+        console.log(error.message);
+        res.redirect("/");
+    }
+
+}
 module.exports =  {
-    jwtAuth
+    jwtAuth,
+    jwtAfterCheck
 }

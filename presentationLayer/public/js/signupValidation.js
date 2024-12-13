@@ -10,6 +10,7 @@ const passwordInput = document.querySelector(".passwordInput");
 const submitbtn =  document.querySelector(".sbmt-btn");
 const form = document.querySelector("form");
 
+
 nameInput.addEventListener("blur",function(){
     errorMessage.style.display = "none";
     const nameValue = nameInput.value;
