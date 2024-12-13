@@ -2,6 +2,10 @@ const {nameValidation,emailValidation,mobileValidation,countryValidation,usernam
 const users = require("../../dataAccessLayer/dataModel/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const otpgen = require("../services/otpService")
+const otpModel = require("../../dataAccessLayer/dataModel/otpModel");
+const userModel = require("../../dataAccessLayer/dataModel/userModel");
+
 
 const registrationPageLoading = (req,res) =>{
    
@@ -77,12 +81,27 @@ const registration = async function(req,res){
             password:secPassword
             
            })
+           
            const savedDocument = await user.save()
            console.log(savedDocument);
+           const otp = otpgen(savedDocument.email);
+           if(otp){
+            const userOtp = new otpModel({
+                user_id:savedDocument._id,
+                otpNumber:otp,
+                createdAt:Date.now()
+                
+            })
+            const savedOtpDocument = await userOtp.save();
+            console.log(savedOtpDocument);
+           }
+
+           
            const jwtSecret = process.env.JWT_SECRET_KEY;
             const token = jwt.sign({email},jwtSecret,{expiresIn:"5m"})
             res.cookie("jwt",token,{httpOnly:true,secure:true})
             res.redirect("/");
+           
            
            
           

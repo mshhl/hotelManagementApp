@@ -1,12 +1,35 @@
-const fast2sms = require('fast-two-sms')
 
-
-const otpGeneratorAndSender = function(phone){
+const nodemailer = require("nodemailer");
+const otpGeneratorAndSender = function(email){
   
-    const otp = generateOTP();
-    var options = {authorization : process.env.API_SMS , message : 'welcome lanka stay ,your otp is  '+otp ,  numbers : [phone]}; 
-    fast2sms.sendMessage(options) 
-    return;
+    try {
+        const otp = generateOTP();
+        console.log(otp);
+        const transporter = nodemailer.createTransport({
+            secure:true,
+            host:"smtp.gmail.com",
+            port:465,
+            auth:{
+                user:process.env.MY_GMAIL,
+                pass: process.env.APP_PASSWORD
+            }
+        })
+
+        function sendMail(to,sub,msg){
+            transporter.sendMail({
+                to:to,
+                subject:sub,
+                html:msg
+            })
+            console.log("email send successfully");
+        }
+        sendMail(email,"your otp is "+otp,"Hey welcome lankaStay your favourate destination");
+    
+   
+    return otp
+    } catch (error) {
+        console.log(error.message)
+    }
 }
 function generateOTP() { 
   
@@ -21,4 +44,5 @@ function generateOTP() {
      
     return OTP; 
 } 
+
 module.exports = otpGeneratorAndSender;
