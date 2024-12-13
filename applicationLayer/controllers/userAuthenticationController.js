@@ -2,6 +2,7 @@ const {nameValidation,emailValidation,mobileValidation,countryValidation,usernam
 const users = require("../../dataAccessLayer/dataModel/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
 const registrationPageLoading = (req,res) =>{
    
     res.render("users/signup");
@@ -46,9 +47,12 @@ const registration = async function(req,res){
            const savedDocument = await user.save()
            console.log(savedDocument);
            const jwtSecret = process.env.JWT_SECRET_KEY;
-           const token = jwt.sign({fullname:Name,country},jwtSecret,{expiresIn:"5m"})
-           res.cookie("jwt",token,{httpOnly:true,secure:true})
-           res.redirect("/");
+            const token = jwt.sign({fullname:Name,country},jwtSecret,{expiresIn:"5m"})
+            res.cookie("jwt",token,{httpOnly:true,secure:true})
+            res.redirect("/");
+           
+           
+          
            
            
        }else{

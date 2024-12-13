@@ -4,6 +4,7 @@ const dotenv = require("dotenv").config();
 const path = require("path");
 const router = require("./applicationLayer/routes/userAuthenticationRoutes");
 const connectMongodb = require("./dataAccessLayer/dataLayer/userData")
+const cookieparser  = require("cookie-parser");
 
 // setting up view engine and views directory path
 app.set("view engine","ejs");
@@ -13,6 +14,7 @@ app.set("views",path.join(__dirname,"presentationLayer"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname,"presentationLayer/public")));
 app.use(express.urlencoded({extended:true}));
+app.use(cookieparser());
 connectMongodb();
 
 
