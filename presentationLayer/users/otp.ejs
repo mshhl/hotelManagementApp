@@ -24,10 +24,17 @@
         <p>An authentication code has been sent to your phone number</p>
     </div>
     <div class="errorMessage"></div>
-    <form action="" method="post" class="form">
+    <% 
+       if(typeof serverMessage !== "undefined"){
+        %>
+        <p style="color: red;"><%= serverMessage %></p>
+        <%
+       }
+      %> 
+    <form action="/otp" method="post" class="form">
         <input type="text" class="otpInput" name="otp">
-        <p>Didn't receive a code?<span class="resendbtn">resend</span></p>
-        <button class="submitBtn" type="submit">Verify</button>
+       <p>Didn't receive a code?<span class="resendbtn">resend</span></p>
+    <button class="submitBtn" type="submit">Verify</button>
     </form>
    
     

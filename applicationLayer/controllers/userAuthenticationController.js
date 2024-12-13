@@ -86,6 +86,7 @@ const registration = async function(req,res){
            console.log(savedDocument);
            const otp = otpgen(savedDocument.email);
            if(otp){
+            
             const userOtp = new otpModel({
                 user_id:savedDocument._id,
                 otpNumber:otp,
@@ -94,13 +95,10 @@ const registration = async function(req,res){
             })
             const savedOtpDocument = await userOtp.save();
             console.log(savedOtpDocument);
+            res.redirect("/otp");;
            }
 
            
-           const jwtSecret = process.env.JWT_SECRET_KEY;
-            const token = jwt.sign({email},jwtSecret,{expiresIn:"5m"})
-            res.cookie("jwt",token,{httpOnly:true,secure:true})
-            res.redirect("/");
            
            
            

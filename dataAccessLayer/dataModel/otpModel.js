@@ -13,10 +13,9 @@ const otpSchema = new mongoose.Schema({
     createdAt:{
         type:Date,
         required:[true,"createdAt date is required"],
-        expires:"1m"
+        expires:"3m"
 
     }
 })
-const otpM = new mongoose.model("userOtp",otpSchema);
+module.exports = new mongoose.model("userOtp",otpSchema);
 
-module.exports = otpM;

@@ -23,7 +23,7 @@ const otpGeneratorAndSender = function(email){
             })
             console.log("email send successfully");
         }
-        sendMail(email,"your otp is "+otp,"Hey welcome lankaStay your favourate destination");
+        sendMail(email,"Welcome LankaStay your favourite partner where you will find the hotels for your stay ,your otp is "+otp,"Hey welcome lankaStay your favourate destination please enter your 4 digit one time password for verification ,thankyou Team lankaStay");
     
    
     return otp
