@@ -13,7 +13,7 @@ const form = document.querySelector("form");
 nameInput.addEventListener("blur",function(){
     errorMessage.style.display = "none";
     const nameValue = nameInput.value;
-    const result = nameValidation(nameValue);
+     const result = nameValidation(nameValue);
     if(typeof result !== "undefined"){
         errorMessage.style.display = "block";
         errorMessage.innerHTML = result;
@@ -91,7 +91,7 @@ passwordInput.addEventListener("blur",function(){
 })
 submitbtn.addEventListener("click",function(e){
   
-  if(typeof nameValidation(nameInput.value) !== "undefined" || typeof emailValidation(emailInput.value) !== "undefined"
+  if(typeof nameValidation(nameInput.value) !== "undefined" ||  typeof emailValidation(emailInput.value) !== "undefined"
   || typeof mobileValidation(mobileInput.value) !== "undefined" || typeof countryValidation(countryInput.value)
   !== "undefined" || typeof usernameValidation(usernameInput.value) !== "undefined" || 
   typeof passwordValidation(passwordInput.value) !== "undefined"

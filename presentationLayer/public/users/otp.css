@@ -74,3 +74,7 @@ form p{
     color: red;
     margin-top: 6px;
 }
+.pe_signin_button{
+    width: 300px;
+    margin-top: 10px;
+}
