@@ -33,7 +33,7 @@ body{
     color: #3252DF;
 }
 .top_bar input{
-    width: 300px;
+    width: 320px;
     height: 28px;
     margin-top: 5px;
     border: 0;
@@ -47,7 +47,7 @@ body{
     width: 350px;
     height: 35px;
     display: flex;
-    border: 1px solid black;
+   
     border-radius: 3px;
     background-color: #f7f8fa;
     margin-left: -500px;
@@ -190,9 +190,12 @@ ul{
 .statisticsRow{
     width: 1100px;
     height: 250px;
-    background-color: white;
+    background-color: whitesmoke;
     margin-left: 265px;
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .title{
     font-size: 18px;
@@ -280,7 +283,7 @@ ul{
 }
 .statusRow .floorArea{
     height: 150px;
-    background-color: pink;
+    background-color: white;
     width: 30%;
     margin-top: 8px;
     margin-left: 40px;
@@ -312,23 +315,196 @@ ul{
     display: flex;
 }
 .graphic{
-    position: absolute;
-            top: 55%;
-            left: 38%;
-            
-            transform: translate(-50%, -50%);
-            height: 100px;
-            width: 200px;
-            border-radius: 150px 150px 0 0;
-            background-color: whitesmoke;
+    width: 200px;
+    height: 100px;
+    background-color: whitesmoke;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    border: 10px solid #3252DF;
+    border-bottom: 0;
+    margin-left: 5px;
+   
+    
            
    
     
 }
-.blueline{
-    width: 200px;
+.percentage{
+    margin-top: 30px;
+    margin-left: 65px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #152C5B;
+}
+.textdata{
+    width: 160px;
+    margin-left: 5px;
+}
+.floorow{
+    display: flex;
+    margin-top: 10px;
+   
+    
+    
+}
+.floorow small{
+    margin-left: 8px;
+    margin-top: 8px;
+}
+.dot{
+    width: 5px;
+    height: 5px;
+    margin-right: 10px;
+}
+.occupancy{
+   width: 66%;
+   height: 260px;
+   background-color: whitesmoke;
+   border-radius: 10px;
+}
+.feedback{
+    width: 30%;
+    height: 220px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.monthbtn{
+    width: 125px;
     height: 30px;
+    border: solid silver 1px;
+    border-radius: 6px;
+   text-align: center;
+   background: none;
+   color: #b3b3b3;
+   margin-right: 6px;
+   
+  
+  
+}
+.topS{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+    background-color: white;
+   
+}
+.downS{
+    width: 100%;
+    height: 185px;
+    background-color: white;
+    margin-top: 1px;
+}
+.percent{
+    color: #9fa4ad;
+    margin-left: 10px;
+   
+}
+.exactBar1 .bar{
+    width: 20px;
+    height: 135px;
     background-color: #3252DF;
-    border-radius: 30%;
-    position: absolute;
+}
+.exactBar2 .bar{
+    width: 20px;
+    height: 120px;
+    background-color: #3252DF;
+}
+.exactBar3 .bar{
+    width: 20px;
+    height: 100px;
+    background-color: #3252DF;
+}
+.exactBar4 .bar{
+    width: 20px;
+    height: 145px;
+    background-color: #3252DF;
+}
+.exactBar5 .bar{
+    width: 20px;
+    height: 150px;
+    background-color: #3252DF;
+}
+.exactBar6 .bar{
+    width: 20px;
+    height: 45px;
+    background-color: #3252DF;
+}
+.exactBar7 .bar{
+    width: 20px;
+    height: 50px;
+    background-color: #3252DF;
+}
+.exactBar8 .bar{
+    width: 20px;
+    height: 80px;
+    background-color: #3252DF;
+}
+.barGraph{
+    display: flex;
+    align-items: center;
+   
+    
+}
+.graphBar{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    margin-left: 15px;
+    
+   
+   
+}
+.exactBar{
+   margin-left: 35px;
+  
+ 
+}
+.percent p{
+    margin-top: 10px;
+}
+.month{
+    color: #9fa4ad;
+}
+.topf{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.downf{
+    width: 100%;
+    height: 80%;
+    background-color: white;
+    margin-top: 3px;
+    padding: 10px;
+}
+.feedRow{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    margin-bottom:  30px;
+    border: 1px solid #9fa4ad;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+   
+}
+.custcomRoom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.name{
+    font-size: 15px;
+    font-weight: 500;
+    color: #9fa4ad;
+}
+.comment{
+    font-size: 12px;
+    color: #9fa4ad;
+}
+.roomNo{
+    font-weight: 600;
+    color: #9fa4ad;
 }
