@@ -84,7 +84,7 @@ const registration = async function(req,res){
            
            const savedDocument = await user.save()
            console.log(savedDocument);
-           const otp = otpgen(savedDocument.email);
+           const otp = otpgen(savedDocument.email,savedDocument.fullname);
            if(otp){
             
             const userOtp = new otpModel({

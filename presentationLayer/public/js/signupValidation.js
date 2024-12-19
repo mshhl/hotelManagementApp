@@ -133,6 +133,10 @@ function emailValidation(email){
     if(!checkEmailValid(email)){
        return "Email is not valid";
     }
+    const array = email.split("@");
+    if(array[1] !== "gmail.com"){
+        return "email is not valid";
+    }
 
     return;
     function checkEmailValid(eml){

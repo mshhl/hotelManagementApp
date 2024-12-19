@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp-LankaStay</title>
+    <link rel="stylesheet" href="/hotelOwners/registerHotel.css">
+    
+</head>
+<body>
+    <div class="picture-container"  >
+       <div class="imgbox">
+        <h2><span>Lanka</span>Stay</h2>
+       </div>
+    </div>
+    <div class="signup-container">
+      <div class="heading">Register Your Hotel</div>
+      <form action="" method="post" >
+        <div class="errorMessage"></div>
+        <% 
+          if(typeof serverMessage !== "undefined" ){
+            %>
+            <p style="color: red;"><%= serverMessage %></p>
+            <%
+          }
+         %> 
+        <div class="row" >
+            <label for="name">Registration No</label>
+            <input type="text" placeholder="Enter your registration number" spellcheck="false" required name="regnumber" class="regInput"  >
+        </div>
+        <div class="row">
+            <label for="email">Address</label>
+            <input type="text" placeholder="Enter your Address" spellcheck="false" required name="address" class="addrsInput">
+        </div>
+        <div class="row">
+            <label for="mobile">Upload Images</label>
+            <input type="file" placeholder="Enter your mobile number" spellcheck="false" required name="mobile" class="mobileInput" multiple>
+        </div>
+        <div class="row">
+            <label for="country">Upload Documents</label>
+            <input type="text" placeholder="Enter your country name" spellcheck="false" required name="country" class="countryInput">
+        </div>
+        <div class="row">
+            <label for="username">Hotel name</label>
+            <input type="text" placeholder="Enter your username" spellcheck="false" required name="username" class="usernameInput">
+        </div>
+        <div class="row">
+            <label for="password">Facilities</label>
+            <input type="text" placeholder="Enter your password" spellcheck="false" required name="password" class="passwordInput">
+        </div>
+        <button type="submit" class="sbmt-btn">Register</button>
+        <p><a href="/">Login</a></p>
+      </form>
+    </div>
+    <script    src="js/signupValidation.js"></script>
+</body>
+</html>

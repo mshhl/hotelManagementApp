@@ -1,0 +1,549 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+  padding: 30px;
+   background-color: white;
+   font-family: "Poppins";
+}
+.navBar{
+    width: 100%;
+    height: 20px;
+    background-color: white;
+    border-bottom: 1px solid whitesmoke;
+   
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+}
+.navBar .brandHeading{
+    font-size: 25px;
+    font-weight:500 ;
+    color: #152C5B;
+    margin-bottom: 15px;
+    
+    
+}
+.navBar .brandHeading span{
+    color: #3252DF;
+}
+.navBar .nav-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    margin-left: 8px;
+}
+.nav-list li{
+    margin-left: 45px;
+    color: #3252DF;
+    list-style-type: none;
+}
+
+.nav-list li a{
+    text-decoration: none;
+    color: #152C5B;
+    
+}
+.nav-list li:first-child a{
+    color: #3252DF;
+}
+.nav-list li:last-child{
+  width: 70px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  background-color: #3252DF;
+  text-align: center;
+  margin-bottom: 6px;
+
+}
+.nav-list li:last-child a{
+    color: white;
+    font-size: 13px;
+    font-weight: 480;
+}
+.ad_area{
+    width: 920px;
+    height: 300px;
+    background-color: whitesmoke;
+    margin-left: 150px;
+    margin-top: 45px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+
+}
+.ad_area .textArea{
+   width: 50%;
+   height: 100%;
+}
+.textArea .bigText{
+    font-size: 30px;
+    font-weight: 700;
+    color: #152C5B;
+}
+.textArea .smallText{
+    color: grey;
+    opacity: 0.6;
+    font-size: 12px;
+    font-weight: 400;
+   
+}
+.textArea .showMoreBtn{
+    width: 155px;
+    height: 30px;
+    margin-top: 30px;
+    background-color: #3252DF;
+    border: 0;
+    outline:0;
+    border-radius: 5px;
+    color: white;
+}
+.imgArea{
+    width: 50%;
+    height: 100%;
+
+}
+.imgArea .border{
+    width: 300px;
+    height: 200px;
+    outline: 0.5px solid grey;
+    opacity: 0.3;
+    border:0;
+    border-radius: 8px;
+    margin-top: 15px;
+    
+    
+}
+.marketTags{
+    width: 500px;
+    height: 100px;
+    margin-left: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.tag{
+    width: 50px;
+    
+}
+.tag_text{
+    display: flex;
+}
+.tag_text h4{
+    margin-right: 8px;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.material-symbols-outlines {
+    width: 100px;
+    color: grey;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+  
+}
+.fa-solid{
+    width: 200px;
+    height: 20px;
+    color: grey;
+    
+}
+.searchArea{
+    width: 80%;
+    height: 200px;
+    border: none;
+    outline: none;
+    margin-left: 100px;
+}
+.option{
+    margin: 20px 20px 20px 40px;
+
+
+}
+.option h2 a{
+    text-decoration: none;
+    color: #D2D2D2;
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 500;
+    
+}
+.option h2 a:hover{
+   color: blue;
+    
+}
+.dateBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 850px;
+    height: 100px;
+    border: none;
+    outline: 0;
+    margin-left: 70px;
+    border-radius: 19px;
+    background-color: #EAF1FF;
+}
+.dateBar .checkAvailablebtn{
+    width: 130px;
+    height: 40px;
+    color: black;
+    background-color: white;
+    outline: 0;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+   
+}
+.dateBar .personbtn{
+    width: 130px;
+    height: 40px;
+    color: black;
+    background-color: white;
+    outline: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+   
+    text-align: center;
+}
+.dateBar .selectLocation{
+    width: 130px;
+    height: 40px;
+    color: black;
+    background-color: white;
+    outline: 0;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+   
+}
+.searchBtnDate{
+    width: 130px;
+    height: 30px;
+    color: black;
+    background-color: white;
+    outline: 0;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+   
+    
+}
+.checkAvailablebtn i{
+    margin: 5px;
+}
+.personbtn i{
+    margin: 3px;
+}
+.selectLocation{
+    margin: 3px;
+}
+.searchBtnDate{
+    margin: 3px;
+   
+    
+}
+i{
+    width: 10px;
+}
+.searchBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 850px;
+    height: 100px;
+    border: none;
+    outline: 0;
+    margin-left: 70px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBar input{
+    width: 500px;
+    height: 40px;
+    padding: 9px;
+
+}
+.searchBar .searchBtnText {
+   width: 132px;
+   height: 38px;
+   color: white;
+   background-color: #3252DF;
+  
+
+}
+.showCase_container{
+    width: 920px;
+    height: 300px;
+    background-color: whitesmoke;
+    margin-left: 150px;
+    margin-top: 80px;
+    padding: 15px;
+   
+   
+
+}
+.mostPicked{
+    width: 900px;
+    height: 300px;
+    border: none;
+    outline: 0;
+    margin-left: 25px;
+    display: flex;
+    justify-content: left;
+    
+}
+
+
+
+.explorationArea{
+    width: 897px;
+    height: 400px;
+    border: none;
+    outline: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: whitesmoke;
+   
+    
+    
+}
+.line1{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.line2{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.img-box-a{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+.img-box-b{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+.img-box-c{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+.img-box-d{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+.img-box-A{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+.img-box-B{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+.img-box-C{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+.img-box-D{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddottours.com%2Fsri-lanka-accommodation%2Fgalle-face-hotel&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAJ");
+    background-size: cover;
+}
+
+.offerTag{
+    width: 100px;
+    height: 15px;
+    background-color: #152C5B;
+    border-radius: 8px;
+    margin-left: 90px;
+    color: white;
+}
+.small_img{
+    width: 600px;
+    height: 130px;
+    border: solid black;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    
+}
+.img-box-2{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("/images/lock-img.png");
+    background-size: cover;
+    
+}
+.img-box-3{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.jetwinghotels.com%2Fsri-lanka-hotels%2Fgalle%2F&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAR");
+    background-size: cover;
+}
+.img-box-4{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goibibo.com%2Fhotels-international%2Fhotels-nearby-the-well-house-galle-sri-lanka-hotel-in-galle-4528376392592899957-nh%2F&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAZ");
+    background-size: cover;
+}
+.img-box-5{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kayak.co.in%2FGalle-Hotels-The-Fortress-Resort-Spa.128071.ksp&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAh");
+    background-size: cover;
+}
+.img-box-2.img-box-3.img-box-4{
+  margin-left: 10px;
+}
+.img-box-6{
+    width: 200px;
+    height: 130px;
+    border: solid black;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.postcardresorts.com%2Fhotels%2Fthe-postcard-galle&psig=AOvVaw0PhjV2S7ORLuwaJAN37Zi6&ust=1734228991425000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCOn96YpooDFQAAAAAdAAAAABAp");
+    background-size: cover;
+}
+.line1-desc{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.line-2desc{
+    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footerArea{
+    width: 100%;
+    height: 150px;
+    border: none;
+    outline: none;
+    display: flex;
+
+    justify-content: space-between;
+    padding: 20px;
+}
+.footerArea .left{
+    width: 50%;
+    
+}
+.footerArea .right{
+    width: 50%;
+    margin-left: 300px;
+
+}
+.brandname{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Poppins";
+    color: #152C5B;
+}
+.brandname span{
+    color: #3252DF;
+}
+.left p{
+     color: #B0B0B0;
+    opacity: 0.8;
+    font-family: "Poppins";
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+.right h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+.right .registerBtn{
+    margin-top: 10px;
+    width:180px;
+    height: 30px;
+    background-color: #3252DF;
+    color: white;
+    border: 0;
+    outline: 0;
+    border-radius: 8px;
+
+}
+.mini-footer{
+    width: 100%;
+    height: 20px;
+    color: white;
+    background-color: #3252DF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    
+}
+.mini-footer p{
+    font-size: 14px;
+}
+
+/* width: 200px;
+height: 220px; */

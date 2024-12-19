@@ -45,15 +45,16 @@ body{
     text-align: center;
 }
 .heading{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 35px;
     font-weight: 600;
 }
 .row{
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 8px;
     margin-left: 35px;
+    
 }
 .row label{
     text-align: left;
@@ -65,10 +66,10 @@ body{
     width: 400px;
     height: 25px;
     padding: 15px;
+   
 }
 .sbmt-btn{
     width: 400px;
-   
     margin-top: 25px;
     color: white;
     background-color: #003DFC;

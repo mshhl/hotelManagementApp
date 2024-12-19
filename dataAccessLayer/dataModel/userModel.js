@@ -25,6 +25,11 @@ const userSchema = mongoose.Schema({
   password:{
     type:String,
     required:[true,"password is mandatory"]
+  },
+  roll:{
+    type:Number,
+    required:[true,"roll is required"],
+    default:0
   }
 })
 
