@@ -30,9 +30,9 @@ const jwtAfterCheck = function(req,res,next){
     }
 
 }
-const jwtTokenGen = function(useremail){
+const jwtTokenGen = function(input){
     const jwtSecret = process.env.JWT_SECRET_KEY;
-    const token = jwt.sign({useremail},jwtSecret,{expiresIn:"5m"})
+    const token = jwt.sign({input},jwtSecret,{expiresIn:"5m"})
     if(token){
         return token
     }

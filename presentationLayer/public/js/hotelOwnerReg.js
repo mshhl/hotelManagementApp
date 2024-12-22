@@ -2,17 +2,20 @@ const errorMessage = document.querySelector(".errorMessage");
 const regInput = document.querySelector(".regInput");
 const addrsInput = document.querySelector(".addrsInput");
 const hotelName = document.querySelector(".usernameInput");
+const submitBtn = document.querySelector(".sbmt-btn");
+const form = document.querySelector("form");
+
 
 regInput.addEventListener("blur",function(){
     console.log("entered regInput")
     errorMessage.style.display = "none";
     const regValue = regInput.value;
      const result = regNumberValidation(regValue);
-    if(result == true){
+    if(typeof result !== "undefined"){
         errorMessage.innerHTML = result;
         errorMessage.style.display = "block";
         
-        return;
+       
     }else{
         errorMessage.style.display = "none";
         
@@ -45,11 +48,38 @@ hotelName.addEventListener("blur",function(){
         
     }
 })
+submitBtn.addEventListener("click",function(e){
+    const regValue = regInput.value;
+    const addrsValue = addrsInput.value;
+    const hotelNameValue = hotelName.value;
+    
+    errorMessage.style.display = "none";
+    const res1 = regNumberValidation(regValue);
+    const res2 = addressValidation(addrsValue);
+    const res3 = hotelNameValidation(hotelNameValue);
+
+    if(typeof res1 !== "undefined" || typeof res2 !=="undefined"
+     || typeof res3 !== "undefined" 
+  ){
+    
+    e.preventDefault();
+    errorMessage.innerHTML = "problem found! check all field";
+    errorMessage.style.display = "block";
+    return;
+  }
+  form.submit();
+  
+  
+})
+
 
 
 const regNumberValidation = function(regno){
-    const regex = /^KL\/[A-Z]{3}\/[0-9]{4}-[0-9]{3}$/;
-    return regex.test(regno)
+    const regex = /^HR\/[A-Z]{3}\/[0-9]{4}-[0-9]{3}$/;
+     const result = regex.test(regno);
+     if(!result){
+        return "registration number  is not valid";
+     }
 }
 
 const addressValidation = function(address){

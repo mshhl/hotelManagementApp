@@ -1,6 +1,9 @@
 const regNumberValidation = function(regno){
-    const regex = /^KL\/[A-Z]{3}\/[0-9]{4}-[0-9]{3}$/;
-    return regex.test(regno)
+    const regex = /^HR\/[A-Z]{3}\/[0-9]{4}-[0-9]{3}$/;
+     const result = regex.test(regno)
+     if(!result){
+        return "Registration number is not valid";
+     }
 }
 const addressValidation = function(address){
     if(address.trim() == ""){

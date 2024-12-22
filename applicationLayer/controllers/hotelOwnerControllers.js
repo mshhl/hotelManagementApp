@@ -1,4 +1,8 @@
 const {regNumberValidation,addressValidation,hotelNameValidation} = require("../services/hotelValidationService");
+const ownerModel = require("../../dataAccessLayer/dataModel/hotelOwnerModel")
+const {jwtTokenGen} = require("./jwtauth");
+const nodemailer = require("nodemailer");
+
 
 const  ownerregistrationLoad = function(req,res){
     res.render("hotelOwner/hotelRegistration");
@@ -7,10 +11,12 @@ const  ownerregistrationLoad = function(req,res){
 const ownerRegistration = async function(req,res){
     try {
         console.log("hello ownerRegistration");
-        const {regnumber,address,hotelname,facilities,bedroom,livingroom,bathroom,diningroom
-            ,internet,refrigerator,tv,washingmachine,vacuum,unitofBed
+        const {regnumber,address,hotelname,bedroom,livingroom,bathroom,diningroom
+            ,internet,refrigerator,tv,washingmachine,vacuum
         } = req.body;
         const {image,document} = req.files;
+        console.log("image document printed");
+        console.log(image,document);
         
           let result = regNumberValidation(regnumber);
           let result2 = addressValidation(address);
@@ -22,36 +28,56 @@ const ownerRegistration = async function(req,res){
               res.render("hotelOwner/hotelRegistration",{serverMessage:result2});
           }else if(typeof result3 !== "undefined"){
            res.render("hotelOwner/hotelRegistration",{serverMessage:result3})
-           }//else{
-        //    const isUserThere = await users.findOne({email,username})
-        //    if(!isUserThere){
-        //        const secPassword = await bcrypt.hash(password,10);
-        //        const user = new users({
-        //         fullname:Name,
-        //         email,
-        //         mobileNo:mobile,
-        //         country,
-        //         username,
-        //         password:secPassword
-                
-        //        })
-               
-        //        const savedDocument = await user.save()
-        //        console.log(savedDocument);
-        //        const otp = otpgen(savedDocument.email,savedDocument.fullname);
-        //        if(otp){
-                
-        //         const userOtp = new otpModel({
-        //             user_id:savedDocument._id,
-        //             otpNumber:otp,
-        //             createdAt:Date.now()
+           }else{
+           const isThereHotel = await ownerModel.findOne({RegistrationNumber:regnumber})
+           if(!isThereHotel){
+              
+                     const facilitiesArray = []
+                     if(bedroom){
+                        facilitiesArray.push(bedroom);
+                     }
+                     if(livingroom){
+                        facilitiesArray.push(livingroom);
+
+                     }
+                     if(bathroom){
+                        facilitiesArray.push(bathroom)
+                     }
+                     if(diningroom){
+                        facilitiesArray.push(diningroom);
+                     }
+                     if(internet){
+                        facilitiesArray.push(internet)
+                     }
+                     if(refrigerator){
+                        facilitiesArray.push(refrigerator)
+                     }
+                     if(tv){
+                        facilitiesArray.push(tv)
+                     }
+                     if(washingmachine){
+                        facilitiesArray.push(washingmachine)
+                     }
+                     if(vacuum){
+                        facilitiesArray.push(vacuum)
+                     }
+                  const hotel = new ownerModel({
+                    RegistrationNumber:regnumber,
+                    Address:address,
+                    Images:image[0].filename,
+                    Documents:document[0].filename,
+                    HotelName:hotelname,
+                    facilitesMainPage:facilitiesArray
                     
-        //         })
-        //         const savedOtpDocument = await userOtp.save();
-        //         console.log(savedOtpDocument);
-        //         res.redirect("/otp");;
-        //        }
-    
+
+                  })
+                  const savedDocument = await hotel.save();
+                  if(savedDocument) console.log(savedDocument);
+                 
+        //       
+               
+        //       
+        //       
                
                
                
@@ -59,11 +85,11 @@ const ownerRegistration = async function(req,res){
               
                
                
-        //    }else{
-        //     res.render("users/signup",{serverMessage:"user found try again with another"});
-        //    }
+           }else{
+            res.render("hotelOwner/hotelRegistration",{serverMessage:"Hotel  found try again with another"});
+           }
     
-        //  }
+         }
        
        } catch (error) {
         console.log("registration side:error");
