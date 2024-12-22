@@ -100,9 +100,16 @@ body{
   
    
 }
+
 .date{
     width: 300px;
     margin-left: 500px;
+}
+.registerHotel{
+    text-decoration: none;
+    color: #9fa4ad;
+    margin-right: 20px;
+    
 }
 .navbar{
     width: 250px;

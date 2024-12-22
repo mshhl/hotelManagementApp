@@ -2,7 +2,9 @@ const {nameValidation,emailValidation,mobileValidation,countryValidation,usernam
 const users = require("../../dataAccessLayer/dataModel/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const otpgen = require("../services/otpService")
+const nodemailer = require("nodemailer");
+const {jwtTokenGen} = require("./jwtauth");
+
 const otpModel = require("../../dataAccessLayer/dataModel/otpModel");
 const userModel = require("../../dataAccessLayer/dataModel/userModel");
 
@@ -39,7 +41,11 @@ const login = async function(req,res){
        }
        const jwtSecret = process.env.JWT_SECRET_KEY;
             const token = jwt.sign({email},jwtSecret,{expiresIn:"5m"})
-            res.cookie("jwt",token,{httpOnly:true,secure:true})
+            res.cookie("jwt",token,{httpOnly:true,secure:true});
+            if(customer.roll == 1){
+                res.redirect("owner/dashboard");
+                return
+            }
             res.redirect("/");
 
        
@@ -72,31 +78,45 @@ const registration = async function(req,res){
        const isUserThere = await users.findOne({email,username})
        if(!isUserThere){
            const secPassword = await bcrypt.hash(password,10);
-           const user = new users({
-            fullname:Name,
-            email,
-            mobileNo:mobile,
-            country,
-            username,
-            password:secPassword
+        //    const user = new users({
+        //     fullname:Name,
+        //     email,
+        //     mobileNo:mobile,
+        //     country,
+        //     username,
+        //     password:secPassword
             
+        //    })
+           const token = jwtTokenGen(email);
+           const transporter = nodemailer.createTransport({
+            service:"gmail",
+            auth:{
+                user:process.env.MY_GMAIL,
+                pass:process.env.APP_PASSWORD
+            }
+           })
+          
+          
+           const mailConfiguration = {
+            from:process.env.MY_GMAIL,
+            to:email,
+            subject:"Email verification",
+            text:`Hi! There,welcome LankaStay, You have recently visited 
+           our website and entered your email.
+           Please follow the given link to verify your email
+           http://localhost:3000/verify/${token}/${Name}/${email}/${mobile}/${country}/${username}/${secPassword}
+           Thanks`
+           // const {Name,email,mobile,country,username,password} = req.body;
+           }
+           transporter.sendMail(mailConfiguration,function(err,info){
+            if(err) throw Error(err)
+                console.log("email sent successfully");
+                
+                console.log(info);
+                res.render("users/signup",{emailMessage:`A link sent to ${email}`})
            })
            
-           const savedDocument = await user.save()
-           console.log(savedDocument);
-           const otp = otpgen(savedDocument.email,savedDocument.fullname);
-           if(otp){
-            
-            const userOtp = new otpModel({
-                user_id:savedDocument._id,
-                otpNumber:otp,
-                createdAt:Date.now()
-                
-            })
-            const savedOtpDocument = await userOtp.save();
-            console.log(savedOtpDocument);
-            res.redirect("/otp");;
-           }
+           
 
            
            
@@ -118,9 +138,47 @@ const registration = async function(req,res){
    
 
 }
+
+const emailVerification = async function(req,res){
+  try {
+    console.log("hey emailVerification")
+    const {token,Name,email,mobile,country,username,password} = req.params;
+    console.log(Name,password);
+
+    if(token){
+        const secretKey = process.env.JWT_SECRET_KEY;
+        jwt.verify(token,secretKey,async function(err,decoded){
+            if(err){
+                console.log(err.message)
+                res.send("email verification failed");
+            }else{
+                const user = new userModel({
+                   fullname:Name,
+                   email,
+                   mobileNo:mobile,
+                   country,
+                   username,
+                   password
+                })
+                const savedDocument = await  user.save();
+                if(savedDocument){
+                    res.cookie("jwt",token,{httpOnly:true,secure:true});
+                    res.redirect("/home");
+                }
+                 
+                
+            }
+
+        })
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
 module.exports = {
     registrationPageLoading,
     loginPageLoading,
     registration,
-    login
+    login,
+    emailVerification
 }

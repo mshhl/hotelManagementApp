@@ -6,6 +6,7 @@
     <title>SignUp-LankaStay</title>
     <link rel="stylesheet" href="/hotelOwners/registerHotel.css">
     
+    
 </head>
 <body>
     <div class="picture-container"  >
@@ -15,7 +16,7 @@
     </div>
     <div class="signup-container">
       <div class="heading">Register Your Hotel</div>
-      <form action="" method="post" >
+      <form action="registerHotel" method="post" enctype="multipart/form-data"  >
         <div class="errorMessage"></div>
         <% 
           if(typeof serverMessage !== "undefined" ){
@@ -29,29 +30,83 @@
             <input type="text" placeholder="Enter your registration number" spellcheck="false" required name="regnumber" class="regInput"  >
         </div>
         <div class="row">
-            <label for="email">Address</label>
+            <label for="address">Address</label>
             <input type="text" placeholder="Enter your Address" spellcheck="false" required name="address" class="addrsInput">
         </div>
         <div class="row">
-            <label for="mobile">Upload Images</label>
-            <input type="file" placeholder="Enter your mobile number" spellcheck="false" required name="mobile" class="mobileInput" multiple>
+            <label for="image">Upload Images</label>
+            <input type="file" placeholder="Enter your mobile number" spellcheck="false" required name="image" class="mobileInput"  accept="image/*">
         </div>
         <div class="row">
-            <label for="country">Upload Documents</label>
-            <input type="text" placeholder="Enter your country name" spellcheck="false" required name="country" class="countryInput">
+            <label for="uploadDocuments">Upload Documents</label>
+            <input type="file" placeholder="Enter your country name" spellcheck="false" required name="document" class="countryInput">
         </div>
         <div class="row">
-            <label for="username">Hotel name</label>
-            <input type="text" placeholder="Enter your username" spellcheck="false" required name="username" class="usernameInput">
+            <label for="hotelname">Hotel name</label>
+            <input type="text" placeholder="Enter your hotelname" spellcheck="false" required name="hotelname" class="usernameInput">
         </div>
         <div class="row">
-            <label for="password">Facilities</label>
-            <input type="text" placeholder="Enter your password" spellcheck="false" required name="password" class="passwordInput">
+            <label for="facilities">Facilities</label>
+            <div class="radiosInput">
+               <div class="left">
+                <div class="line">
+                    <label for="">Bedroom</label>
+                    <input type="radio" name="bedroom" value="Bedroom">
+                   </div>
+                   <div class="line">
+                    <label for="">Living room</label>
+                    <input type="radio" name="livingroom" value="living Room">
+                   </div>
+                   <div class="line">
+                    <label for="">Bathroom</label>
+                    <input type="radio" name="bathroom" value="Bathroom" >
+                   </div>
+                   <div class="line">
+                    <label for="">Dining room</label>
+                    <input type="radio" name="diningroom" value="Dining Room" >
+                   </div>
+                   <div class="line">
+                    <label for="">internet</label>
+                    <input type="radio"  name="internet" value="Internet">
+                   </div>
+                   
+               </div>
+               <div class="right">
+                <div class="line">
+                    <label for="">Refrigerator</label>
+                    <input type="radio" name="refrigerator" value="Refrigerator">
+                   </div>
+                   <div class="line">
+                    <label for="">television</label>
+                    <input type="radio" name="tv" value="Television" >
+                   </div>
+                   <div class="line">
+                    <label for="">automatic wash</label>
+                    <input type="radio" name="washingmachine" value="automatic washing machine" >
+                   </div>
+                   <div class="line">
+                    <label for="">auto clean vacuum</label>
+                    <input type="radio" name="vacuum" value="auto clean vacuum">
+                   </div>
+                   <div class="line">
+                    <label for="">unit of bed</label>
+                    <input type="radio" name="unitofBed" value="unit of bed" >
+                   </div>
+                   
+               </div>
+              
+               
+               
+               
+            </div>
+           
         </div>
         <button type="submit" class="sbmt-btn">Register</button>
-        <p><a href="/">Login</a></p>
+        <p><a href="dashboard">Dashboard</a></p>
       </form>
     </div>
-    <script    src="js/signupValidation.js"></script>
+    <script src="js/hotelOwnerReg.js"></script>
+    
+    
 </body>
 </html>

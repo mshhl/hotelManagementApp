@@ -14,6 +14,8 @@ app.set("views",path.join(__dirname,"presentationLayer"));
 // configured public file ,parsing to javascript object and form submission through urlencoded
 app.use(express.json());
 app.use(express.static(path.join(__dirname,"presentationLayer/public")));
+app.use('/uploads', express.static('uploads'));
+
 app.use(express.urlencoded({extended:true}));
 app.use(cookieparser());
 connectMongodb();
