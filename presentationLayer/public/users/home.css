@@ -557,3 +557,8 @@ i{
 
 /* width: 200px;
 height: 220px; */
+#suggestionList{
+    width: 500px;
+    color: black;
+    background-color: grey;
+}

@@ -32,7 +32,7 @@ function checkFileType(file,cb){
 
 router.route("/registerHotel").get(ownerregistrationLoad).post(upload.fields([{name:"image",maxCount:1},{name:"document",maxCount:1}]),ownerRegistration);
 router.route("/dashboard").get(loadDashboard)
-router.use(globalErrorHandler);
+
 
 
 module.exports = router;

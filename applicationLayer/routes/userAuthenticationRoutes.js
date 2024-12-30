@@ -12,9 +12,9 @@ const {jwtAuth,jwtAfterCheck} = require("../controllers/jwtauth");
 router.route("/").get(jwtAuth,loginPageLoading).post(login)
 router.route("/registration").get(jwtAuth,registrationPageLoading).post(registration)
 router.route("/home").get(jwtAfterCheck,loadHome)
-router.route("logout").get()
+router.route("/logout").get()
 router.route("/verify/:token/:Name/:email/:mobile/:country/:username/:password").get(emailVerification)
-router.use(globalErrorHandler)
+
 
 
 module.exports = router;

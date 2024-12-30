@@ -56,6 +56,7 @@ const login = async function(req,res){
 const registration = async function(req,res){
    try {
     const {Name,email,mobile,country,username,password} = req.body;
+    
      let result = nameValidation(Name);
      let result2 = emailValidation(email);
      let result3 = mobileValidation(mobile);
@@ -95,7 +96,22 @@ const registration = async function(req,res){
                 pass:process.env.APP_PASSWORD
             }
            })
-          
+           const splitname = Name.split(" ");
+           if(splitname.length > 1){
+            for(let i = 0;i<splitname.length - 1;i++){
+                const firstName = splitname[i];
+                const mfirstName = firstName + ",";
+                splitname[i] = mfirstName;
+                
+            }
+           
+           }
+           let joinName ;
+           if(splitname.length > 1){  
+            joinName =  splitname.join("");
+           console.log(joinName) 
+         }
+           
           
            const mailConfiguration = {
             from:process.env.MY_GMAIL,
@@ -104,7 +120,7 @@ const registration = async function(req,res){
             text:`Hi! There,welcome LankaStay, You have recently visited 
            our website and entered your email.
            Please follow the given link to verify your email
-           http://localhost:3000/verify/${token}/${Name}/${email}/${mobile}/${country}/${username}/${secPassword}
+           http://localhost:3000/verify/${token}/${joinName}/${email}/${mobile}/${country}/${username}/${secPassword}
            Thanks`
            // const {Name,email,mobile,country,username,password} = req.body;
            }
@@ -140,10 +156,12 @@ const registration = async function(req,res){
 }
 
 const emailVerification = async function(req,res){
+    console.log("helo email veru");
   try {
     console.log("hey emailVerification")
     const {token,Name,email,mobile,country,username,password} = req.params;
     console.log(Name,password);
+
 
     if(token){
         const secretKey = process.env.JWT_SECRET_KEY;
@@ -152,8 +170,10 @@ const emailVerification = async function(req,res){
                 console.log(err.message)
                 res.send("email verification failed");
             }else{
+                const nName = Name.split(",");
+                const newJoinName = nName.join(" ");
                 const user = new userModel({
-                   fullname:Name,
+                   fullname:newJoinName,
                    email,
                    mobileNo:mobile,
                    country,
