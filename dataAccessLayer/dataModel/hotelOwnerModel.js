@@ -22,4 +22,5 @@ const ownerModel = new mongoose.Schema({
 
        
 })
+  ownerModel.index({ HotelName: 'text'})
 module.exports = mongoose.model("ownerModels",ownerModel);

@@ -17,6 +17,7 @@ function jwtAuth (req,res,next){
     
 }
 const jwtAfterCheck = function(req,res,next){
+    console.log("jwt check")
     try {
         const token = req.cookies.jwt;
 
@@ -30,9 +31,9 @@ const jwtAfterCheck = function(req,res,next){
     }
 
 }
-const jwtTokenGen = function(input){
+const jwtTokenGen = function(email){
     const jwtSecret = process.env.JWT_SECRET_KEY;
-    const token = jwt.sign({input},jwtSecret,{expiresIn:"5m"})
+    const token = jwt.sign({email},jwtSecret,{expiresIn:"1d"})
     if(token){
         return token
     }

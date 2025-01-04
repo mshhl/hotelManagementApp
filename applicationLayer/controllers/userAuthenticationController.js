@@ -40,7 +40,7 @@ const login = async function(req,res){
         return;
        }
        const jwtSecret = process.env.JWT_SECRET_KEY;
-            const token = jwt.sign({email},jwtSecret,{expiresIn:"5m"})
+            const token = jwt.sign({email},jwtSecret,{expiresIn:"1d"})
             res.cookie("jwt",token,{httpOnly:true,secure:true});
             if(customer.roll == 1){
                 res.redirect("owner/dashboard");
