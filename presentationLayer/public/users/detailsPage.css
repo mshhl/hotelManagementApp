@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: 20px;
+    background-color: white;
+    font-family: "Poppins";
+}
+.navBar{
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+   padding: 25px;
+   align-items: center;
+   border: none;
+   border-bottom: 1px solid whitesmoke;
+   outline: 0;
+   
+}
+.navBar h2{
+    color: #152c5b;
+}
+.navBar h2 span{
+    color: #3252df; ;
+}
+.nav-list{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.nav-list li{
+    margin-right: 35px;
+    font-size: 16px;
+   list-style-type: none;
+   
+
+}
+.nav-list li a{
+    text-decoration: none;
+}
+.brandHeading{
+    font-size: 21px;
+    font-weight: 500;
+}
+.logoutButton{
+   border: none;
+   outline: none;
+   background-color: #3252df;
+   height: 28px;
+   border-radius: 5px;
+   padding: 2px 10px;
+  
+}
+.logoutButton a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+}
+.subnav{
+    display: inline-block;
+    margin-left: 6%;
+    text-align: center;
+}
+.branding{
+    display: inline-block;
+    margin-left: 35%;
+  
+ 
+   text-align: center;
+  
+}
+.branding .hotelName{
+    font-size: 30px;
+    font-weight: 600;
+    color: #152c5b;
+    margin-top: 20px;
+   
+}
+.branding .place{
+    font-size:12px ;
+    font-weight: 400;
+    color: gray;
+  
+   
+}
+.image_container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 20px 15px;
+    background-color: grey;
+   width: 70%;
+    height: 350px;
+   margin-left: 15%;
+   margin-top: 70px;
+   gap: 8px;
+  
+
+}
+.image_1{
+    width: 100%;
+  grid-row: span 2;
+ 
+  border-radius: 8px;
+  border:solid 1px black;
+  background-size: cover;
+ 
+}
+.image{
+    width: 85%;
+    border-radius: 8px;
+    border: solid 1px black;
+    background-size: cover;
+}
+.details{
+    width:70% ;
+    height: 320px;
+    background-color: grey;
+    border-radius: 8px;
+    margin-left: 15%;
+    margin-top: 22px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.about{
+    width: 50%;
+    height: 92%;
+    border: solid black;
+    background-size:cover ;
+}
+.bookingSheet{
+    width: 35%;
+    height: 60%;
+    border: solid black;
+   margin-bottom: 8%;
+   margin-right: 30px;
+   background-size:cover ;
+}
+.child{
+    width: 70px;
+    height: 40px;
+    border:  solid black;
+    background-size: cover;
+    
+   
+}
+.features{
+    display: flex;
+   justify-content: space-evenly;
+    align-items: center;
+    margin-top: 4%;
+   
+}
+.treasure_container{
+    width: 70%;
+    height: 155px;
+    border: solid 1px black;
+    margin-top: 15px;
+    margin-left: 15%;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+   
+}
+.heading{
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 15%;
+    
+
+}
+.tr{
+    width: 80%;
+    border-radius: 8px;
+    border: solid 1px black;
+    background-size: cover;
+}
+.testimonials-container{
+    width: 70%;
+    height: 190px;
+    border: solid 1px black;
+    margin-top: 45px;
+    margin-left: 15%;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+}
+.review-box{
+    width: 100%;
+    border-radius: 8px;
+    border: solid 1px black;
+    background-size: cover;
+}

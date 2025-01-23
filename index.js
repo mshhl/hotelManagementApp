@@ -2,11 +2,14 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv").config();
 const path = require("path");
-const router = require("./applicationLayer/routes/userAuthenticationRoutes");
+const userAuthenticationRouter = require("./applicationLayer/routes/userAuthenticationRoutes");
 const connectMongodb = require("./dataAccessLayer/dataLayer/userData")
 const cookieparser  = require("cookie-parser");
 const ownerRouter = require("./applicationLayer/routes/hotelOwnerRoutes")
 const globalErrorHandler = require("./applicationLayer/controllers/globalErrorHandlerController")
+
+
+const mainRouter = require("./applicationLayer/routes/userAuthenticationRoutes");
 
 // setting up view engine and views directory path
 app.set("view engine","ejs");
@@ -21,9 +24,16 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieparser());
 connectMongodb();
 
+// app.use("/home",homeRouter);
+// app.use("/details",detailsPageRouter)
+// app.use("/",userAuthenticationRouter);
 
-app.use("/",router);
-app.use("/owner",ownerRouter);
+
+
+app.use("/",mainRouter)
+app.use("/owner",ownerRouter)
+
+// app.use("/owner",ownerRouter);
 
 app.use(globalErrorHandler);
 

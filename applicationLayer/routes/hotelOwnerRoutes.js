@@ -14,6 +14,7 @@ var storage = multer.diskStorage({
     cb(null, file.originalname)
   }
 })
+console.log("router owner")
 
 var upload = multer({ storage: storage ,fileFilter:function(res,file,cb){
   checkFileType(file,cb);

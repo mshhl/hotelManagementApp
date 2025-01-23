@@ -41,12 +41,13 @@ const login = async function(req,res){
        }
        const jwtSecret = process.env.JWT_SECRET_KEY;
             const token = jwt.sign({email},jwtSecret,{expiresIn:"1d"})
-            res.cookie("jwt",token,{httpOnly:true,secure:true});
+            res.cookie("jwt",token,{secure:true});
             if(customer.roll == 1){
                 res.redirect("owner/dashboard");
                 return
             }
-            res.redirect("/");
+            console.log("hello home")
+            res.redirect("/home");
 
        
     } catch (error) {

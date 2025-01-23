@@ -1,125 +1,298 @@
-const searchBarInput = document.querySelector(".searchBarInput");
-const picAreaContainer = document.querySelector(".picArea");
-const linetopcontainer = document.querySelector(".linetop");
-const bigImage = document.querySelector(".img-box-1_big");
+const hotelContainer = document.querySelector(".hotel-container");
+const inputSearch = document.querySelector(".searchInput");
+// const searchBtn = document.querySelector(".searchbtn");
+const notFoundText = document.querySelector(".not-found-text");
+const hotel_1 = document.querySelector(".hotel-1");
+const hotel = document.querySelector(".hotel");
+const pagination = document.querySelector(".pagination");
 
 
 
 
-searchBarInput.addEventListener("input",async function(e){
-     try {
-        console.log("result reached")
-        picAreaContainer.innerHTML = "";
-        const inputValue = e.target.value;
-        
-        if(typeof inputValue == "undefined") return;
-        
-         fetch(`/suggest?q=${inputValue}`)
-         .then(data => data.json())
-         .then(results =>{
-            if(!results) return;
-            console.log(results)
-            
-               
-           
-               console.log(results[0].Images)
-                const markup1 = `<div class="img-box-1_big" >
-                <div class="offerTag">$50 per night</div>
-             </div>`;
-            //    const markup2 = generateMarkup(results);
-                 bigImage.style.backgroundImage =  `url(/uploads/${results[0].Images})`; 
-                picAreaContainer.insertAdjacentElement("beforebegin",markup1)
-                // linetopcontainer.insertAdjacentElement("afterbegin",markup2);
-                // console.log(linetopcontainer)
-         
-         } )
-        
-        
+// const setIndicationArray = [];
+// const indicationArray = [];
+
+// const defaultMarkup = async function(){
+//   try {
+//     const fetchResults = await fetchDefault();
+//     renderResultDefault(fetchResults)
+//   } catch (error) {
+//     console.log(error.message);
+
+//   }
+// }
+// const fetchDefault = async function(){
+//   const response = await fetch("/defaultquery?page=1&limit=5");
+//   const responseJson = await response.json();
+//   return responseJson; 
+// }
+
+// function generateSearchMarkup(obj,index){
+//   setIndicationArray.push(obj.HotelName)
+//   if(index === 0){
     
-    //     
-    //     console.log(resultjson);
-    //     console.log(resultjson[0].Images)
-    //     const markup1 = `<div class="img-box-1_big" style = "background-image:url("/uploads/${resultjson[0].Images}")">
-    //     <div class="offerTag">$50 per night</div>
-    // </div>`
-    //    const markup2 = generateMarkup(resultjson);
-    //    picAreaContainer.insertAdjacentElement("afterbegin",markup1)
-    //    linetopcontainer.insertAdjacentElement("afterbegin",markup2);
-    //    console.log(linetopcontainer)
- 
-     } catch (error) {
-        console.log(error);
-     }
+//     return (`<div class="hotel-1">
+//     <img class="image" src="uploads/${obj?.Images}">
+//       <div class="offerTag">50% offer</div>
+//       <div class="title">
+//       <div class="hotelname">${obj?.HotelName}</div>
+//       <div class="address">${obj?.Address}</div>
+      
+//       </div>
+     
+//     </div>`)
+//   }else{
+//     return (`<div class="hotel">
+//       <div class="offerTag"> 50% per night</div>
+//        <img src="uploads/${obj?.Images}" class="image" alt="Girl in a jacket">
+//        <div class="title">
+//       <div class="hotelname">${obj?.HotelName}</div>
+//       <div class="address">${obj?.Address}</div>
+      
+//       </div>
+//   </div>`);
+//   }
+  
+
+  
+
+// }
+// function generateDefault(obj,index){
+//   if(index === 0){
+    
+//     return (`<div class="hotel-1">
+//     <img class="image" src="uploads/${obj?.Images}">
+//       <div class="offerTag">50% offer</div>
+//       <div class="title">
+//       <div class="hotelname">${obj?.HotelName}</div>
+//       <div class="address">${obj?.Address}</div>
+      
+//       </div>
+     
+//     </div>`)
+//   }else{
+//     return (`<div class="hotel">
+//       <div class="offerTag"> 50% per night</div>
+//        <img src="uploads/${obj?.Images}" class="image" alt="Girl in a jacket">
+//        <div class="title">
+//       <div class="hotelname">${obj?.HotelName}</div>
+//       <div class="address">${obj?.Address}</div>
+      
+//       </div>
+//   </div>`);
+// }
+// }
+
+// const search = async function(e){
+//     try {
+      
+     
+//       console.log("entered to search function")
+//         const query = e.target.value;
+//         console.log(query);
+//         if(!query) {
+        
+//           defaultMarkup();
+//           return;
+
+//         };
+//         const fetchResult = await fetchData(query);
+//         renderResult(query,fetchResult);
+//     } catch (error) {
+//         console.log(error.message);
+//     }
+// }
+
+// async function fetchData(query){
+//     try {
+//         const response = await fetch(`/suggest?q=${query}&page=1&limit=5`);
+//         const responseJson = await response.json();
+//         return responseJson;
+
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// function handleExceptions(query,results){
+//    try {
+//     if(!query.length){
+      
+//       return;
+//     }
+//     if(!results.length){
+//       hotelContainer.style.display = "none";
+//       notFoundText.textContent = "No result found";
+//     } 
+
+//    } catch (error) {
+//     console.log(error.message);
+//    }
+
+// }
+
+// function renderResultDefault(results){
+//   try {
+//     results?.forEach((obj,index) =>{
+      
+      
+//       const html = generateDefault(obj,index);
+//       console.log(html);
+      
+//       hotelContainer.insertAdjacentHTML("beforeend",html);
+    
+      
+//     })
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
+// function renderResult(query,results){
+//     handleExceptions(query,results);
+
+//   //  hotelContainer.style.display = "block";
+//     results?.forEach((hotel,index) =>{
+     
+//       // if(setIndicationArray.includes(hotel.HotelName) ) return;
+      
+//         notFoundText.textContent = "";
+//         const html = generateSearchMarkup(hotel,index);
+  
+//         console.log(html)
+//         hotelContainer.insertAdjacentHTML("beforeend",html);
+        
+        
+//     })
+// }
+     
 
 
+// inputSearch.addEventListener("input",search)
+// window.addEventListener("load",defaultMarkup)
 
-    })
-
-    function generateMarkup(hotels){
-        let markup;
-        let start = 2;
-
-        hotels.forEach((hotel,indx )=>{
-             markup += ` <div class="img-box-${start}">
-                            <div class="offerTag">$50 per night</div>
-                        </div>`
-                        start++;
-
-        })
-        return markup;
-       
-    //  const markupline2 =  ` <div class="img-box-2">
-    //                         <div class="offerTag">$50 per night</div>
-    //                     </div>`    
+ async function search(e){
+  try {
+    hotelContainer.innerHTML = ""
+    const query = e.target.value.toLowerCase().trim();
+    if(!query){
+      notFoundText.textContent = "";
+      return;
+    } 
+    
+    const result = await fetchData(query);
+    if(!result.length) {
+      notFoundText.textContent = "No Result Found";
+    }else{
+      notFoundText.textContent = "";
     }
+   
+    renderResult(result);
 
- 
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+async function fetchData(query){
+  try {
+    const result = await fetch(`/suggest?q=${query}&page=1&limit=5`)
+    const resultjson = await result.json();
+    return resultjson;
+  } catch (error) {
+    console.log(error.message);
 
-// const hotels = [
-//     {
-//       name: "hotel-0",
-//       price: "40",
-//     },
-//     {
-//       name: "hotel-1",
-//       price: "40",
-//     },
-//     {
-//       name: "hotel-2",
-//       price: "40",
-//     },
-//     {
-//       name: "hotel-3",
-//       price: "40",
-//     },
-//   ];
-  
-//   const containerEl = document.querySelector(".container");
-//   const searchInput = document.querySelector(".search-bar");
-  
-//   const generateMarkup = function (obj) {
-//     const markup = `<div class="hotel-container">
-//                       <div class="hotel-name">${obj.name}</div>
-//                       <div class="container-tag">$${obj.price}</div>
-//                   </div>`;
-  
-//     return markup;
-//   };
-  
-//   searchInput.addEventListener("input", (e) => {
-//     containerEl.innerHTML = "";
-//     const query = e.target.value;
-//     const results = [];
-  
-//     hotels.forEach((hotel) => {
-//       if (hotel.name.includes(query)) results.push(hotel);
-//     });
-  
-//     results.forEach((hotel) => {
-//       const markup = generateMarkup(hotel);
-//       containerEl.insertAdjacentHTML("beforeend", markup);
-//     });
-//   });
-  
+  }
+}
+
+// create markup 
+function generateMarkup(hotel,index){
+  try {
+    if(index === 0) return (`<div class="hotel-1">
+      <img src="uploads/${hotel?.Images}" class="image">
+        <div class="offerTag">50% offer</div>
+          <div class="title">
+           <div class="hotelName">${hotel?.HotelName}</div>
+           <div class="place">${hotel?.Address}</div>
+
+          </div>
+      </div>`
 
 
+    )
+    return (
+      `<div class="hotel">
+      <img src="uploads/${hotel?.Images}" class="image">
+        <div class="offerTag">50% offer</div>
+          <div class="title">
+           <div class="hotelName">${hotel?.HotelName}</div>
+           <div class="place">${hotel?.Address}</div>
+
+          </div>
+      </div>`
+    )
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+function renderResult(hotels){
+  try {
+    hotels.forEach((hotel,index) =>{
+      const html = generateMarkup(hotel,index);
+      hotelContainer.insertAdjacentHTML("beforeend",html);
+    })
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+async function defaultSearch(e){
+  try {
+    const results = await fetchDataDefault()
+    if(!results.length){
+      notFoundText.textContent = "No Result Found";
+      return;
+    } 
+    renderResult(results);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+async function fetchDataDefault(){
+   try {
+    const response = await fetch(`/defaultquery?page=1&limit=5`);
+    const responsejson = await response.json();
+    return responsejson;
+   } catch (error) {
+    console.log(error.message);
+    
+   }
+}
+async function fetchPagination(page){
+  try {
+    hotelContainer.innerHTML = "";
+    const results = await fetch(`/defaultquery?page=${page}&limit=5`) ;
+    if(!results.length){
+      notFoundText.textContent = "No Result Found";
+      return;
+    }
+   const children = pagination.querySelectorAll(".child");
+   children.forEach(child =>{
+    child.addEventListener("click",function(){
+      children.forEach(c =>{
+        c.classList.remove("active");
+      })
+      children.forEach(c =>{
+        c.classList.add("inactive");
+
+      })
+      this.classList.remove("inactive");
+      this.classList.add("active");
+    })
+   })
+    renderResult(results)
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+
+inputSearch.addEventListener("input",search);
+window.addEventListener("load",defaultSearch);

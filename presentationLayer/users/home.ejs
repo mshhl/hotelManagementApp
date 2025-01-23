@@ -1,239 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
     <title>Home page</title>
-    <link rel="stylesheet" href="users/home.css">
+    <link rel="stylesheet" href="users/home.css" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add_a_photo" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=lock" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-</head>
-<body>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
     <nav class="navBar">
-       <h2 class="brandHeading"><span>Lanka</span>Stay</h2>
-        <ul class="nav-list">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Hotels</a></li>
-            <li><a href="/">Rooms</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Contact</a></li>
-            <li class="logoutButton"><a href="/logout">Logout</a></li>
-            
-        </ul>
+      <h2 class="brandHeading"><span>Lanka</span>Stay</h2>
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Hotels</a></li>
+        <li><a href="/">Rooms</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/">Contact</a></li>
+        <li class="logoutButton"><a href="/logout">Logout</a></li>
+      </ul>
     </nav>
     <section class="ad_area">
-        <div class="textArea">
-          <h2 class="bigText">Forget Busy Work,<br>Start Next Vacation</h2>
-          <small class="smallText">We provide what you need to enjoy your <br> holiday with your family.Time to make another <br>memorable moment.</small>
-          <br>
-          <button class="showMoreBtn">Show More</button>
+      <div class="textArea">
+        <h2 class="bigText">Forget Busy Work,<br />Start Next Vacation</h2>
+        <small class="smallText"
+          >We provide what you need to enjoy your <br />
+          holiday with your family.Time to make another <br />memorable
+          moment.</small
+        >
+        <br />
+        <button class="showMoreBtn">Show More</button>
+      </div>
+      <div class="imgArea">
+        <div class="border">
+          <div class="img_container"></div>
         </div>
-        <div class="imgArea">
-           <div class="border">
-            <div class="img_container">
-   
-            </div>
-           </div>
-        </div>
-        
+      </div>
     </section>
     <div class="marketTags">
-        <div class="tag">
-            <span class="material-symbols-outlined">
-                lock
-                </span>
-           <div class="tag_text">
-            <h4>2500 </h4>
-            <span>Users</span>
-           </div>
+      <div class="tag">
+        <span class="material-symbols-outlined"> lock </span>
+        <div class="tag_text">
+          <h4>2500</h4>
+          <span>Users</span>
         </div>
-        <div class="tag">
-            <i class="fa-solid fa-camera"></i>
-                
-                
-            <div class="tag_text">
-                <h4>200</h4>
-            <span>treasure</span>
-            </div>
+      </div>
+      <div class="tag">
+        <i class="fa-solid fa-camera"></i>
+
+        <div class="tag_text">
+          <h4>200</h4>
+          <span>treasure</span>
         </div>
-        <div class="tag">
-            <i class="fa-solid fa-location-dot"></i>
-            <div class="tag_text">
-                <h4>100 </h4>
-            <span>Cities</span>
-            </div>
+      </div>
+      <div class="tag">
+        <i class="fa-solid fa-location-dot"></i>
+        <div class="tag_text">
+          <h4>100</h4>
+          <span>Cities</span>
         </div>
+      </div>
     </div>
     <section class="searchArea">
-        <div class="option">
-            <h2><a href="">SEARCH BY DATE</a> | <a href="">SEARCH BY TEXT</a> </h2>
-        </div>
-        <div class="dateBar">
-         <button class="checkAvailablebtn">
-            <i class="fa-regular fa-calendar-days"></i>
-            Check Available</button>
-         <button class="personbtn">
-            <i class="fa-solid fa-user"></i>
-            Person <p class="count">2</p>
-            <i class="fa-solid fa-angle-down"></i>
-        
+      <div class="option">
+        <h2><a href="">SEARCH BY DATE</a> | <a href="">SEARCH BY TEXT</a></h2>
+      </div>
+      <div class="dateBar">
+        <button class="checkAvailablebtn">
+          <i class="fa-regular fa-calendar-days"></i>
+          Check Available
         </button>
-         <button class="selectLocation">
-            <i class="fa-solid fa-location-dot"></i>Select</button>
-          <button type="submit" class="searchBtnDate">
-
-            Search</button>
-        </div>
-        <div class="searchBar">
-          <input type="text"  placeholder="Search hotel name here" class="searchBarInput">
-          <button class="searchBtnText" type="submit">Search</button>
-        </div>
-        <ul id="suggestionList"></ul>
+        <button class="personbtn">
+          <i class="fa-solid fa-user"></i>
+          Person
+          <p class="count">2</p>
+          <i class="fa-solid fa-angle-down"></i>
+        </button>
+        <button class="selectLocation">
+          <i class="fa-solid fa-location-dot"></i>Select
+        </button>
+        <button type="submit" class="searchBtnDate">Search</button>
+      </div>
+      
+        
+      
+      
+      
     </section>
-    <section class="showCase_container">
-        <div class="mostPicked">
-            <h2 class="heading">Most picked</h2>
-            <div class="picArea">
-                <div class="img-box-1_big">
-                    <div class="offerTag">$50 per night</div>
-                </div>
-                <div class="small_img">
-                    <div class="linetop">
-                        <div class="img-box-2">
-                            <div class="offerTag">$50 per night</div>
-                        </div>
-                        <div class="img-box-3">
-                            <div class="offerTag">$50 per night</div>
-                        </div>
-            
-                    </div>
-                    <div class="linedown">
-                        <div class="img-box-4">
-                            <div class="offerTag">$50 per night</div>
-                        </div>
-                        <div class="img-box-5">
-                            <div class="offerTag">$50 per night</div>
-                        </div>
-                    </div>
-                    
-                   
-                    
-                    
-                    
-                    
-                </div>
-            </div>
-           
-        </div>
-        <div class="explorationArea">
-            <div class="line1">
-                <div class="img-box-a">
-                    <div class="offerTag">$50 per night</div>
-                   
-                </div>
-                
-                <div class="img-box-b">
-                    <div class="offerTag">$50 per night</div>
-                   
-                </div>
-                
-                <br>
-                <br>
-                <div class="img-box-c">
-                    <div class="offerTag">$50 per night</div>
-                    
-                </div>
-                
-                <div class="img-box-d">
-                    <div class="offerTag">$50 per night</div>
-                    
-                </div>
-               
-            </div>
-            <div class="line1-desc">
-                <p class="img-box-adesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-                <p class="img-box-bdesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-                <p class="img-box-cdesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-                <p class="img-box-ddesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-            </div>
-            <div class="line2">
-                <div class="img-box-A">
-                    <div class="img"></div>
-                    <div class="offerTag">$50 per night</div>
-                    
-                    
-                </div>
-                
-                <div class="img-box-B">
-                    <div class="img"></div>
-                    <div class="offerTag">$50 per night</div>
-                    
-                </div>
-                
-                <div class="img-box-C">
-                    <div class="img"></div>
-                    <div class="offerTag">$50 per night</div>
-                    
-                </div>
-               
-                <div class="img-box-D">
-                    <div class="img"></div>
-                    <div class="offerTag">$50 per night</div>
-                    
-                </div>
-                
-            </div>
-            <div class="line-2desc">
-                <p class="img-box-Adesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-                <p class="img-box-Bdesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-                <p class="img-box-Cdesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-                <p class="img-box-Ddesc">
-                    sri-la
-                    <small>Colombo,sriLanka</small>
-                </p>
-
-            </div>
-        </div>
-        <footer class="footerArea">
-            <div class="left">
-                <h4 class="brandname"><span>Lanka</span>Stay</h4>
-                <p>We are waiting for the beautiful holiday <br>memorable and cherishing</p>
-            </div>
-            <div class="right">
-                <h3>Become a hotel owner</h3>
-                <button type="button" class="registerBtn">Register Now</button>
-            </div>
-            
-        </footer>
-        <div class="mini-footer">
-            <p>Copyright 2025.All right reserved.LankaStay</p>
-        </div>
-    </section>
+    <div class="searchbar">
+      <input type="text" class="searchInput">
+      <button class="searchbtn">Search</button>
+    </div>
+    <p class="not-found-text"></p>
+    <div class="container-heading">Most Picked</div>
+     <section class="hotel-container">
+     
+     </section>
+     <div class="pagination">
+      <a  href=""><</a>
+      <a class=" child active"  onclick="fetchPagination(1)" >1</a>
+      <a  class="child"  onclick="fetchPagination(2)">2</a>
+      <a  class="child"   onclick="fetchPagination(3)">3</a>
+      <a class="child"  onclick="fetchPagination(4)">4</a>
+      <a class="child"   onclick="fetchPagination(5)">5</a>
+      <a href="">></a>
+     </div>
+    
+    <footer class="footerArea">
+      <div class="left">
+        <h4 class="brandname"><span>Lanka</span>Stay</h4>
+        <p>
+          We are waiting for the beautiful holiday <br />memorable and
+          cherishing
+        </p>
+      </div>
+      <div class="right">
+        <h3>Become a hotel owner</h3>
+        <button type="button" class="registerBtn">Register Now</button>
+      </div>
+    </footer>
+    <div class="mini-footer">
+      <p>Copyright 2025.All right reserved.LankaStay</p>
+    </div>
     <script src="js/home.js"></script>
-</body>
+  </body>
 </html>
