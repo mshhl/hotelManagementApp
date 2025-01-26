@@ -1,4 +1,4 @@
-const {nameValidation,emailValidation,mobileValidation,countryValidation,usernameValidation,passwordValidation} = require("../services/validationService");
+const {nameValidation,emailValidation,mobileValidation,countryValidation,usernameValidation,passwordValidation} = require("../utils/validationService");
 const users = require("../../dataAccessLayer/dataModel/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");

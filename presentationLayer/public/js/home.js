@@ -193,7 +193,7 @@ const pagination = document.querySelector(".pagination");
 }
 async function fetchData(query){
   try {
-    const result = await fetch(`/suggest?q=${query}&page=1&limit=5`)
+    const result = await fetch(`home/suggest?q=${query}&page=1&limit=5`)
     const resultjson = await result.json();
     return resultjson;
   } catch (error) {
@@ -206,13 +206,15 @@ async function fetchData(query){
 function generateMarkup(hotel,index){
   try {
     if(index === 0) return (`<div class="hotel-1">
-      <img src="uploads/${hotel?.Images}" class="image">
+     <a href="details?hotelId=${hotel._id}">
+        <img src="uploads/${hotel?.Images}" class="image">
         <div class="offerTag">50% offer</div>
           <div class="title">
            <div class="hotelName">${hotel?.HotelName}</div>
            <div class="place">${hotel?.Address}</div>
 
           </div>
+     </a>
       </div>`
 
 
@@ -257,7 +259,7 @@ async function defaultSearch(e){
 }
 async function fetchDataDefault(){
    try {
-    const response = await fetch(`/defaultquery?page=1&limit=5`);
+    const response = await fetch(`home/defaultquery?page=1&limit=5`);
     const responsejson = await response.json();
     return responsejson;
    } catch (error) {
@@ -268,7 +270,7 @@ async function fetchDataDefault(){
 async function fetchPagination(page){
   try {
     hotelContainer.innerHTML = "";
-    const results = await fetch(`/defaultquery?page=${page}&limit=5`) ;
+    const results = await fetch(`home/defaultquery?page=${page}&limit=5`) ;
     if(!results.length){
       notFoundText.textContent = "No Result Found";
       return;
@@ -296,3 +298,5 @@ async function fetchPagination(page){
 
 inputSearch.addEventListener("input",search);
 window.addEventListener("load",defaultSearch);
+hotel_1.addEventListener("click",)
+

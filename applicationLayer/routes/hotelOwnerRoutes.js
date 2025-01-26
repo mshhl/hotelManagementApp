@@ -4,7 +4,7 @@ const {ownerregistrationLoad,loadDashboard,ownerRegistration} = require("../cont
 const multer = require("multer");
 const {jwtAfterCheck} = require("../controllers/jwtauth")
 const path = require("path");
-const globalErrorHandler = require("../controllers/globalErrorHandlerController");
+
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -19,6 +19,8 @@ console.log("router owner")
 var upload = multer({ storage: storage ,fileFilter:function(res,file,cb){
   checkFileType(file,cb);
 }})
+
+
 function checkFileType(file,cb){
   const filetypes = /jpeg|jpg|png|gif/;
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase())
@@ -31,7 +33,7 @@ function checkFileType(file,cb){
 }
 
 
-router.route("/registerHotel").get(ownerregistrationLoad).post(upload.fields([{name:"image",maxCount:1},{name:"document",maxCount:1}]),ownerRegistration);
+router.route("/registerHotel").get(ownerregistrationLoad).post(upload.fields([{"name":"image1",maxCount:1},{"name":"image2",maxCount:1},{"name":"image3",maxCount:1},{"name":"document",maxCount:1}]),ownerRegistration);
 router.route("/dashboard").get(loadDashboard)
 
 

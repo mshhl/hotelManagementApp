@@ -1,4 +1,4 @@
-const {regNumberValidation,addressValidation,hotelNameValidation} = require("../services/hotelValidationService");
+const {regNumberValidation,addressValidation,hotelNameValidation} = require("../utils/hotelValidationService");
 const ownerModel = require("../../dataAccessLayer/dataModel/hotelOwnerModel")
 const {jwtTokenGen} = require("./jwtauth");
 const nodemailer = require("nodemailer");
@@ -14,9 +14,9 @@ const ownerRegistration = async function(req,res){
         const {regnumber,address,hotelname,bedroom,livingroom,bathroom,diningroom
             ,internet,refrigerator,tv,washingmachine,vacuum
         } = req.body;
-        const {image,document} = req.files;
+        const {image1,image2,image3,document} = req.files;
         console.log("image document printed");
-        console.log(image,document);
+       
         
           let result = regNumberValidation(regnumber);
           let result2 = addressValidation(address);
@@ -61,10 +61,11 @@ const ownerRegistration = async function(req,res){
                      if(vacuum){
                         facilitiesArray.push(vacuum)
                      }
+                     console.log(image1.filename,image2.filename,image3.filename,document.filename);
                   const hotel = new ownerModel({
                     RegistrationNumber:regnumber,
                     Address:address,
-                    Images:image[0].filename,
+                    Images:[image1[0].filename,image2[0].filename,image3[0].filename],
                     Documents:document[0].filename,
                     HotelName:hotelname,
                     facilitesMainPage:facilitiesArray

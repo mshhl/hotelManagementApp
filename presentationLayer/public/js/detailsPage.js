@@ -1,15 +1,44 @@
 const navList = document.querySelector(".nav-list");
 const authenticationBtn = document.querySelector(".logoutButton");
+const imageContainer = document.querySelector(".image_container");
 
 
-function defaultView(e){
+async function defaultView(e){
     try {
-    
-     
         const cookie = testCookie("jwt")
        const markup = generateAuthenticationBtnMarkup(cookie)
         
        insertInnerHtml(markup);
+       const hotel = await fetchData()
+       const Images = hotel.Images;
+       if(!Images.isArray()){
+        const imageMarkup = generateImageMarkup(src,index)
+       }
+       Images.forEach((src,index) =>{
+        const imageMarkup = generateImageMarkup(src,index)
+       } )
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+function generateImageMarkup(src,index){
+    try {
+        if(index == 0){
+            return ` <div class="image_1">
+      <img src="images/" alt="">
+    </div>
+    `
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+async function fetchData(){
+    try {
+        const response = await fetch(`/details/fetchDetail`);
+        const responsejson = await response.json();
+        return responsejson;
     } catch (error) {
         console.log(error.message);
     }

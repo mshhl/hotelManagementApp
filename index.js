@@ -6,10 +6,12 @@ const userAuthenticationRouter = require("./applicationLayer/routes/userAuthenti
 const connectMongodb = require("./dataAccessLayer/dataLayer/userData")
 const cookieparser  = require("cookie-parser");
 const ownerRouter = require("./applicationLayer/routes/hotelOwnerRoutes")
-const globalErrorHandler = require("./applicationLayer/controllers/globalErrorHandlerController")
+const globalErrorHandler = require("./ErrorHandler/globalErrorHandlerController");
+const mainRouter = require("./routes");
 
 
-const mainRouter = require("./applicationLayer/routes/userAuthenticationRoutes");
+// const mainRouter = require("./applicationLayer/routes/userAuthenticationRoutes");
+
 
 // setting up view engine and views directory path
 app.set("view engine","ejs");
@@ -31,7 +33,6 @@ connectMongodb();
 
 
 app.use("/",mainRouter)
-app.use("/owner",ownerRouter)
 
 // app.use("/owner",ownerRouter);
 

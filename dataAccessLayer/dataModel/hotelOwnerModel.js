@@ -9,7 +9,7 @@ const ownerModel = new mongoose.Schema({
         type:String,
         required:[true,"address is required for the hotel"]
     },
-    Images:{type:String,required:true},
+    Images:{type:[String],required:true},
     Documents:{
         type:String,
         required:true
